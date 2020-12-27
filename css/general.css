@@ -3,6 +3,18 @@ body {
     background: #ffffff;
 }
 
+.btn {
+    width: 200px;
+    border: 1px solid #999999;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.btn-orange {
+    ;
+}
+
 #header {
     position: sticky;
     top: 0;

@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href=@yield('style')>
     <title>@yield('title')</title>
+    <script src="https://kit.fontawesome.com/e469d29140.js" crossorigin="anonymous"></script>
 </head>
 <body>
 @yield('header')

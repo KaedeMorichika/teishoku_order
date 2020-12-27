@@ -13,7 +13,7 @@ class SingletonPDO
     {
         if (empty(self::$dbh)) {
             try {
-                self::$dbh = new \PDO(self::$dsn, DB_USER);
+                self::$dbh = new \PDO(self::$dsn, DB_USER, DB_PASS);
             } catch (\PDOException $e) {
                 echo 'DB Connection failed:' . $e->getMessage();
             }

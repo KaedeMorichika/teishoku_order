@@ -45,7 +45,7 @@ class User
             return $user;
 
         } catch (\PDOException $e) {
-            echo $e->getMessage();
+            echo $e->getFile() . ' ' . $e->getLine() . ' ' . $e->getMessage();
         }
     }
 

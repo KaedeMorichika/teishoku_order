@@ -1,6 +1,6 @@
 @extends('layout/template')
 
-@section('title', 'ログインページ')
+@section('title', 'ログイン')
 @section('style', 'css/login.css')
 
 @include('layout/header')

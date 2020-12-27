@@ -5,7 +5,7 @@ body {
 
 .btn {
     width: 200px;
-    border: 1px solid #999999;
+    border: 3px solid #999999;
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
@@ -38,20 +38,29 @@ body {
 
 .title {
     position: relative;
-    top: 50%;
-    right: -60%;
+    float: right;
+    top: 60%;
+    right: 20%;
     font-size: 2rem;
     color: #999999;
     text-shadow: 0 0 3px #000000;
 }
 
-#user-icon {
+.option-icon {
     position: relative;
-    right: -70%;
-    top: 50%;
+    float: right;
     font-size: 2rem;
+    top: 60%;
     color: #ffaa00;
     text-shadow: 0 0 3px #000000;
+}
+
+#user-icon {
+    right: 0;
+}
+
+#shopping-cart {
+    right: -6%;
 }
 
 #content {

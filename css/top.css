@@ -11,4 +11,9 @@
 .dish-btn {
     font-size: 1.2rem;
     background: #ff2222aa;
+    outline: none;
+}
+
+.dish-btn:hover {
+    background: #ff2222ee;
 }

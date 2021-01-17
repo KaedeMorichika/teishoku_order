@@ -47,7 +47,7 @@ let dishItem = {
                 name: this.dish.name,
                 num: this.dishNum
             };
-            dishCart.push(dishOrder);
+            dishCart.items.push(dishOrder);
         }
     }
 }

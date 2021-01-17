@@ -7,6 +7,8 @@
     </span>
     <span id="shopping-cart" class="option-icon">
         <i class="fas fa-shopping-cart"></i>
+        <span v-show="itemNum>0">[[itemNum]]</span>
     </span>
 </div>
+<script src="view/js/dishCart.js"></script>
 @endsection

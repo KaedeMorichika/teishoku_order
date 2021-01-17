@@ -18,13 +18,13 @@ let dishCart = new Vue({
             };
             axios
                 .post('index.php?action=putOrderDb', JSON.stringify(postData))
-                .then(function (response){
+                .then(function (response) {
                     console.log('success');
                     dishCart.items = [];
                 })
-                .catch(function (error){
+                .catch(function (error) {
                     console.log('failed');
                 });
-
+        }
     }
 });

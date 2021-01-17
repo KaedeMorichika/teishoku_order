@@ -1,7 +1,7 @@
 <?php
 
 
-namespace dish¥factory;
+namespace dish\factory;
 
 use auth\SingletonPDO;
 

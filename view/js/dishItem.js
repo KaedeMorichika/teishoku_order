@@ -11,7 +11,7 @@ let dishItem = {
     data: function () {
         return {
             dish: this.dishJson,
-            dishNum: 0,
+            dishNum: 1,
             isActive: false
         }
     },
@@ -24,7 +24,6 @@ let dishItem = {
     </button>
     <div>{{dish.info}}</div>
     <div v-show="isActive">
-        <div>{{dish.name}}</div>
         <div>
             <input v-model="dishNum" type="text">個
         </div>
@@ -37,14 +36,18 @@ let dishItem = {
     `,
     methods: {
         formActivate: function () {
-            this.isActive = true;
+            this.isActive = ! this.isActive;
         },
         formInactivate: function () {
             this.isActive = false;
         },
         add2Cart: function () {
-            console.log(this.dish.name);
-            console.log(this.dishNum);
+            let dishOrder = {
+                id: this.dish.id,
+                name: this.dish.name,
+                num: this.dishNum
+            };
+            dishCart.push(dishOrder);
         }
     }
 }

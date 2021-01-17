@@ -17,3 +17,7 @@
 .dish-btn:hover {
     background: #ff2222ee;
 }
+
+.is_shown {
+    display: inline;
+}

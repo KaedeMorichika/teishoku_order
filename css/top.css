@@ -1,0 +1,23 @@
+#today_lineup {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff2222;
+}
+
+.dish {
+    margin: 10px 0;
+}
+
+.dish-btn {
+    font-size: 1.2rem;
+    background: #ff2222aa;
+    outline: none;
+}
+
+.dish-btn:hover {
+    background: #ff2222ee;
+}
+
+.is_shown {
+    display: inline;
+}

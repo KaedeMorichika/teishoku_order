@@ -36,7 +36,7 @@ class Order
         try {
             $sql = '
         INSERT INTO orders
-        ("user_id", "dish_id", "dish_num", "created", "updated")
+        (`user_id`, `dish_id`, `dish_num`, `created`, `updated`)
         VALUES (:user_id, :dish_id, :dish_num, :created, :updated)
         ';
 

@@ -4,7 +4,7 @@
 namespace dish\factory;
 
 use auth\SingletonPDO;
-use dish¥factory\Factory;
+use dish\factory\Factory;
 use dish\Order;
 
 class OrderFactory extends Factory

@@ -1,10 +1,10 @@
 <?php
 
-namespace dish¥factory;
+namespace dish\factory;
 
 use auth\SingletonPDO;
 use dish\Option;
-use dish¥factory\Factory;
+use dish\factory\Factory;
 
 class OptionFactory extends Factory
 {

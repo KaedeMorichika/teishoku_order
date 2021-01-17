@@ -1,9 +1,9 @@
 <?php
 
-namespace dish¥factory;
+namespace dish\factory;
 
 use auth\SingletonPDO;
-use dish¥factory\Factory;
+use dish\factory\Factory;
 use dish\Dish;
 
 class DishFactory extends Factory

@@ -8,6 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"><script>
     <script src="https://kit.fontawesome.com/e469d29140.js" crossorigin="anonymous"></script>
+    @if(!empty($id))
+    <script type="text/javascript">
+        let id = {{$id}};
+    </script>
+    @endif
 </head>
 <body>
 @yield('header')

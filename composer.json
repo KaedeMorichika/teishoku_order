@@ -6,7 +6,7 @@
         "psr-4": {
             "auth\\": "class/auth",
             "dish\\": "class/dish",
-            "dish¥factory\\": "class/dish/factory"
+            "dish\factory\\": "class/dish/factory"
         }
     }
 }

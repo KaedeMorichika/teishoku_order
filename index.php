@@ -27,13 +27,16 @@ if (empty($_SESSION)) {
     } else {
         $action = 'login';
     }
-} else {
-    echo 'Already logged in';
-    //TODO セッションがあった時に、どのように認証するか考える
 }
 
-
+if (empty($_SESSION['id'])) {
+    require_once(__DIR__ . '/action/login.php');
+} else {
+    $id = $_SESSION['id'];
+}
 
 if (!empty($action)) {
     require_once(__DIR__ . '/action/' . $action . '.php');
+} else {
+    require_once(__DIR__ . '/action/top.php');
 }

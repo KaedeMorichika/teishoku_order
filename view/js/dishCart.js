@@ -17,7 +17,7 @@ let dishCart = new Vue({
                 orders: this.items
             };
             axios
-                .post('index.php?action=putOrderDb', JSON.stringify(postData))
+                .post('/action/putOrderDb.php', JSON.stringify(postData))
                 .then(function (response) {
                     console.log('success');
                     dishCart.items = [];

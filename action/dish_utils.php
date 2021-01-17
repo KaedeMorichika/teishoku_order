@@ -1,7 +1,7 @@
 <?php
 
 use auth\SingletonPDO;
-use dish¥factory\DishFactory;
+use dish\factory\DishFactory;
 
 function get_all_dishes() {
 

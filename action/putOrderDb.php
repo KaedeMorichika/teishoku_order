@@ -3,17 +3,17 @@ use auth\SingletonPDO;
 use dish\factory\OrderFactory;
 
 $data = json_decode(file_get_contents('php://input'), true);
-echo ($data);
-if (!empty($data['id'])) {
+
+if (!empty($data['user_id'])) {
 
     $dbh = SingletonPDO::connect();
-    $id = $data['id'];
-    $orders = $data['orders'];
+    $user_id = $data['user_id'];
+    $orders = json_decode($data['orders']);
     $response = 'success';
 
     foreach ($orders as $key => $order) {
 
-        $order->id = $id;
+        $order->user_id = $user_id;
         $order_factory = new OrderFactory();
         $order_factory->makeFromStdObject($order);
         $order = $order_factory->getProduct();

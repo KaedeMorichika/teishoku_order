@@ -43,9 +43,9 @@ let dishItem = {
         },
         add2Cart: function () {
             let dishOrder = {
-                id: this.dish.id,
-                name: this.dish.name,
-                num: this.dishNum
+                dish_id: this.dish.id,
+                dish_name: this.dish.name,
+                dish_num: this.dishNum
             };
             dishCart.items.push(dishOrder);
         }

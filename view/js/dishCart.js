@@ -14,11 +14,11 @@ let dishCart = new Vue({
     methods: {
         submitItems: function () {
             let postData = {
-                id: id,
-                orders: this.items
+                user_id: id,
+                orders: JSON.stringify(this.items)
             };
             axios
-                .post('/teishoku_order/index.php?action=putOrderDb', JSON.stringify(postData))
+                .post('/teishoku_order/index.php?action=putOrderDb', postData)
                 .then(function (response) {
                     console.log(response);
                     dishCart.items = [];

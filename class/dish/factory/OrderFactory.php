@@ -13,6 +13,7 @@ class OrderFactory extends Factory
 
     public function makeFromStdObject(Object $std_object)
     {
+        var_dump($std_object);
         $this->makeProduct($std_object->id, $std_object->user_id, $std_object->dish_id, $std_object->dish_num);
     }
 
@@ -24,5 +25,10 @@ class OrderFactory extends Factory
     public function getProduct()
     {
         return $this->order;
+    }
+
+    public function makeFromId(int $id)
+    {
+
     }
 }

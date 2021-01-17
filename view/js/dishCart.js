@@ -18,9 +18,9 @@ let dishCart = new Vue({
                 orders: this.items
             };
             axios
-                .post('/teishoku_order/action/putOrderDb.php', JSON.stringify(postData))
+                .post('/teishoku_order/index.php?action=putOrderDb', JSON.stringify(postData))
                 .then(function (response) {
-                    console.log('success');
+                    console.log(response);
                     dishCart.items = [];
                 })
                 .catch(function (error) {

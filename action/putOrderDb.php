@@ -3,7 +3,7 @@ use auth\SingletonPDO;
 use dish\factory\OrderFactory;
 
 $data = json_decode(file_get_contents('php://input'), true);
-
+echo ($data);
 if (!empty($data['id'])) {
 
     $dbh = SingletonPDO::connect();

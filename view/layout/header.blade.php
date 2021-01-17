@@ -6,7 +6,7 @@
         <i class="fas fa-user-circle"></i>
     </span>
     <span id="shopping-cart" class="option-icon">
-        <i class="fas fa-shopping-cart"></i>
+        <span @click="submitItems"><i class="fas fa-shopping-cart"></i></span>
         <span v-show="itemNum>0">[[itemNum]]</span>
     </span>
 </div>

@@ -5,3 +5,7 @@
 ## getting-started
 1. GitHub Clone
 2. composer install
+
+## master user
+ID: master
+PASS: master

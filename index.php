@@ -9,6 +9,8 @@ session_start();
 
 if (!empty($_GET['action'])) {
     $action = sanitize_get($_GET['action']);
+} else {
+    $action = 'top';
 }
 
 if (empty($_SESSION)) {

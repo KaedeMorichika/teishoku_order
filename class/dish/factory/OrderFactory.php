@@ -14,6 +14,11 @@ class OrderFactory extends Factory
     public function makeFromStdObject(Object $std_object)
     {
         $this->makeProduct($std_object->id, $std_object->user_id, $std_object->dish_id, $std_object->dish_num);
+        if (!empty($std_object->dish_options)) {
+            foreach ($std_object->dish_options as $key => $dish_option) {
+                $this->order->addOptionFromAssoc($dish_option->id, 1); /* とりあえず数は決め打ち */
+            }
+        }
     }
 
     private function makeProduct(?int $id, int $user_id, int $dish_id, int $dish_num, ?int $created = null, ?int $updated = null)

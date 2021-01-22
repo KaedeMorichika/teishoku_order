@@ -30,10 +30,9 @@ class DishFactory extends Factory
     public function makeFromId(int $id)
     {
         $dish = self::getByIdFromDB($id);
-
         if (!empty($dish)) {
 
-            $this->dish = new Dish($dish['id'], $dish['name'], $dish['price'], $dish['main_category_id'], $dish['info'], $dish['created'], $dish['updated']);
+            $this->dish = new Dish($dish['id'], $dish['name'], $dish['price'], $dish['info'], $dish['created'], $dish['updated']);
         }
     }
 
@@ -55,6 +54,36 @@ class DishFactory extends Factory
             $stmt->execute($param);
 
             return $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    /**
+     * @param int $dish_id
+     * @return array
+     */
+    private function getCategoriesById(int $dish_id)
+    {
+        try {
+            $dbh = SingletonPDO::connect();
+
+            $sql = '
+            SELECT category.id FROM category
+            LEFT JOIN relate_dish_category
+            ON category.id = relate_dish_category.categry_id
+            WHERE relate_dish_category.dish_id = :dish_id
+            ';
+
+            $param = [
+                'dish_id' => $dish_id
+            ];
+
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute($param);
+
+            return $stmt->fetchAll(\PDO::FETCH_COLUMN);
 
         } catch (\PDOException $e) {
             echo $e->getMessage();

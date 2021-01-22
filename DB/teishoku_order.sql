@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 --
 -- データベース: `teishoku_order`
 --
+
 CREATE DATABASE IF NOT EXISTS `teishoku_order` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `teishoku_order`;
 

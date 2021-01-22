@@ -11,6 +11,7 @@ let dishItem = {
     data: function () {
         return {
             dish: this.dishJson,
+            options: this.dishJson.options,
             dishNum: 1,
             isActive: false
         }
@@ -26,6 +27,11 @@ let dishItem = {
     <div v-show="isActive">
         <div>
             <input v-model="dishNum" type="text">個
+        </div>
+        <div v-if="options" style="margin-left: 15px">
+            <div v-for="option in options">
+                <label><input type="checkbox" v-model="option.isSelected"><span>{{option.name}}</span></label>
+            </div>
         </div>
         <div>
             <button @click="add2Cart">買い物カートへ</button>
@@ -47,7 +53,22 @@ let dishItem = {
                 dish_name: this.dish.name,
                 dish_num: this.dishNum
             };
+            if (this.options) {
+                dishOrder.dish_options = [];
+                for (let option of this.options) {
+                    if (option.isSelected) {
+                        dishOrder.dish_options.push(option);
+                    }
+                }
+            }
             dishCart.items.push(dishOrder);
+        }
+    },
+    mounted: function () {
+        if (this.options) {
+            for (let option of this.options) {
+                option.isSelected = false;
+            }
         }
     }
 }

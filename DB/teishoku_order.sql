@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: db
--- 生成日時: 2021 年 1 月 10 日 05:56
+-- 生成日時: 2021 年 1 月 17 日 13:54
 -- サーバのバージョン： 5.7.32-log
 -- PHP のバージョン: 7.4.13
 
@@ -20,6 +20,9 @@ SET time_zone = "+00:00";
 --
 -- データベース: `teishoku_order`
 --
+
+CREATE DATABASE IF NOT EXISTS `teishoku_order` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `teishoku_order`;
 
 -- --------------------------------------------------------
 
@@ -60,6 +63,33 @@ INSERT INTO `dish` (`id`, `name`, `price`, `main_category_id`, `info`, `created`
 (2, 'チキン南蛮定食', 840, 0, '唐揚げ定食から生まれた新メニュー。ガッツリいきたいあなたに。', 1609073991, 1609073991),
 (3, 'カレー定食', 550, 0, '老若男女に人気なカレーをお手頃価格で。', 1609074039, 1609074039),
 (4, '回鍋肉定食', 800, 0, '回鍋肉定食', 1609330315, 1609330315);
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `dish_id` int(11) NOT NULL,
+  `dish_num` int(11) NOT NULL DEFAULT '0',
+  `created` int(11) NOT NULL,
+  `updated` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- テーブルのデータのダンプ `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `dish_id`, `dish_num`, `created`, `updated`) VALUES
+(1, 1, 1, 1, 1610891334, 1610891334),
+(2, 1, 1, 1, 1610891368, 1610891368),
+(3, 1, 1, 1, 1610891368, 1610891368),
+(4, 1, 1, 2, 1610891416, 1610891416),
+(5, 1, 2, 2, 1610891416, 1610891416),
+(6, 1, 4, 3, 1610891416, 1610891416);
 
 -- --------------------------------------------------------
 
@@ -114,6 +144,12 @@ ALTER TABLE `dish`
   ADD PRIMARY KEY (`id`);
 
 --
+-- テーブルのインデックス `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- テーブルのインデックス `relate_dish_category`
 --
 ALTER TABLE `relate_dish_category`
@@ -140,6 +176,12 @@ ALTER TABLE `category`
 --
 ALTER TABLE `dish`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- テーブルの AUTO_INCREMENT `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- テーブルの AUTO_INCREMENT `relate_dish_category`

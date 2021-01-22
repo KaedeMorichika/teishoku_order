@@ -58,7 +58,7 @@ class Order
         ];
 
         $stmt = $dbh->prepare($sql);
-        $result = $stmt->execute($param);
+        $stmt->execute($param);
 
         return $dbh->lastInsertId();
     }
@@ -68,13 +68,13 @@ class Order
         $sql = '
             INSERT INTO order_options
             (`order_id`, `option_id`, `option_num`, `created`, `updated`)
-            VALUES(:order_id, :option_id, :option_num, :created, :updated)
+            VALUES
             ';
         $insert = [];
         $param = [];
         foreach ($this->options as $key =>$option) {
             if (!empty($option)) {
-                $insert[] = '(:order_id'.$key.', option_id'.$key.', option_num'.$key.', created'.$key.', updated'.$key.')';
+                $insert[] = '(:order_id'.$key.', :option_id'.$key.', :option_num'.$key.', :created'.$key.', :updated'.$key.')';
                 $param = array_merge($param, [
                     'order_id'.$key => $this->id,
                     'option_id'.$key => $option['option_id'],

@@ -28,11 +28,13 @@ let dishItem = {
         <div>
             <input v-model="dishNum" type="text">個
         </div>
-        <div v-if="options" style="margin-left: 15px">
-            <div v-for="option in options">
-                <label><input type="checkbox" v-model="option.isSelected"><span>{{option.name}}</span></label>
+            <table>
+            <div v-if="options" style="margin-left: 15px">
+            <tr v-for="option in options">          
+                <td><span>{{option.name}}</span></td><td><input type="input" v-model="option.option_num">個</td>               
+            </tr>
             </div>
-        </div>
+            </table>
         <div>
             <button @click="add2Cart">買い物カートへ</button>
         </div>
@@ -56,7 +58,7 @@ let dishItem = {
             if (this.options) {
                 dishOrder.dish_options = [];
                 for (let option of this.options) {
-                    if (option.isSelected) {
+                    if (option.option_num > 0) {
                         dishOrder.dish_options.push(option);
                     }
                 }
@@ -67,7 +69,7 @@ let dishItem = {
     mounted: function () {
         if (this.options) {
             for (let option of this.options) {
-                option.isSelected = false;
+                option.option_num = 0;
             }
         }
     }
